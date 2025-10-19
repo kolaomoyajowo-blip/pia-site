@@ -1,17 +1,18 @@
-import Link from "next/link";
-
 export default function Footer() {
+  const year = new Date().getFullYear();
   return (
-    <footer className="border-t bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-8 text-sm text-gray-600">
-        <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Privacy Intelligence Academy</p>
-          <nav className="flex gap-6">
-            <Link href="/#courses" className="hover:text-indigo-600">Courses</Link>
-            <Link href="/#consulting" className="hover:text-indigo-600">Consulting</Link>
-            <Link href="/#resources" className="hover:text-indigo-600">Resources</Link>
-            <Link href="/#contact" className="hover:text-indigo-600">Contact</Link>
-          </nav>
+    <footer className="w-full border-t">
+      <div className="mx-auto max-w-5xl px-4 py-6 text-sm text-gray-600">
+        <div className="flex flex-col items-center gap-2 sm:flex-row sm:justify-between">
+          <p>© {year} Privacy Intelligence Academy</p>
+          <div className="flex items-center gap-4">
+            <a className="hover:underline" href="/privacy">
+              Privacy Policy
+            </a>
+            <a className="hover:underline" href="/terms">
+              Terms
+            </a>
+          </div>
         </div>
       </div>
     </footer>
