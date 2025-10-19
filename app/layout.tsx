@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.privacyintelligenceacademy.org"),
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col">
