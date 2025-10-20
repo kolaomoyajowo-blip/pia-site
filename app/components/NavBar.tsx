@@ -5,13 +5,15 @@ import Logo from "./Logo";
 
 export default function NavBar() {
   return (
-    <header className="border-b">
+    <header className="border-b bg-white/70 backdrop-blur">
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
-        {/* Logo on the left, links on the right */}
-        <Link href="/" aria-label="Go to homepage">
-          <Logo size={60} />
+        {/* Left: Logo (clickable) */}
+        <Link href="/" aria-label="Go to homepage" className="shrink-0">
+          {/* Increase or decrease the size number to change the navbar logo size */}
+          <Logo size={72} />
         </Link>
 
+        {/* Right: Navigation links */}
         <ul className="flex items-center gap-6 text-sm">
           <li>
             <Link href="/about" className="hover:underline">
