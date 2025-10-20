@@ -3,30 +3,27 @@
 import Image from "next/image";
 
 type Props = {
-  /** Pixel width/height of the square logo */
+  /** Size of the square logo in pixels */
   size?: number;
-  /** Extra Tailwind classes if you want */
-  className?: string;
+  /** Show org name under the shield (for areas like navbar we usually hide) */
+  showName?: boolean;
 };
 
-export default function Logo({ size = 56, className = "" }: Props) {
+export default function Logo({ size = 56, showName = false }: Props) {
   return (
-    <div className={`inline-flex flex-col items-center ${className}`} aria-label="Privacy Intelligence Academy">
-      {/* Shield logo */}
+    <div className="flex flex-col items-center leading-none">
       <Image
         src="/logo.png"
-        alt="Privacy Intelligence Academy shield logo"
+        alt="Privacy Intelligence Academy logo"
         width={size}
         height={size}
         priority
       />
-      {/* Name touching the bottom tip of the shield */}
-      <span
-        className="mt-1 text-[11px] sm:text-xs font-semibold tracking-wide"
-        style={{ marginTop: "-2px" }}  // visually nudges text toward the shield tip
-      >
-        Privacy Intelligence Academy
-      </span>
+      {showName && (
+        <span className="mt-1 text-xs font-semibold tracking-wide text-[#0b3b69]">
+          Privacy Intelligence Academy
+        </span>
+      )}
     </div>
   );
 }
