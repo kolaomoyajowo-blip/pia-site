@@ -1,35 +1,29 @@
+"use client";
+
 import Image from "next/image";
 
 type Props = {
-  /** Size in pixels for both width & height of the shield image */
+  /** Pixel width/height of the square logo */
   size?: number;
-  /** Add tighter overlap between text and the shield point */
-  tight?: boolean;
-  /** Tailwind color class for the org name text */
-  textColorClass?: string;
+  /** Extra Tailwind classes if you want */
+  className?: string;
 };
 
-export default function Logo({
-  size = 48, // default header size
-  tight = true,
-  textColorClass = "text-blue-900",
-}: Props) {
+export default function Logo({ size = 56, className = "" }: Props) {
   return (
-    <div className="flex flex-col items-center leading-none select-none">
+    <div className={`inline-flex flex-col items-center ${className}`} aria-label="Privacy Intelligence Academy">
+      {/* Shield logo */}
       <Image
         src="/logo.png"
-        alt="Privacy Intelligence Academy logo"
+        alt="Privacy Intelligence Academy shield logo"
         width={size}
         height={size}
         priority
-        className="h-auto w-auto"
       />
+      {/* Name touching the bottom tip of the shield */}
       <span
-        className={[
-          tight ? "-mt-1" : "mt-0",
-          "text-[10px] md:text-xs font-semibold tracking-tight",
-          textColorClass,
-        ].join(" ")}
+        className="mt-1 text-[11px] sm:text-xs font-semibold tracking-wide"
+        style={{ marginTop: "-2px" }}  // visually nudges text toward the shield tip
       >
         Privacy Intelligence Academy
       </span>
