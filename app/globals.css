@@ -2,11 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Simple typographic rhythm */
+/* ----- Site-wide background ----- */
 :root {
-  --bg: #ffffff;
-  --fg: #0a0a0a;
+  --bg-from: 255 255 255;        /* white */
+  --bg-to: 245 247 255;          /* very light blue */
 }
 
-html, body { height: 100%; }
-body { background: var(--bg); color: var(--fg); }
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply min-h-screen bg-gradient-to-b from-[rgb(var(--bg-from))] to-[rgb(var(--bg-to))] text-slate-800 antialiased;
+}
+
+/* dotted grid overlay */
+.bg-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* colorful, blurred blobs */
+.blob {
+  filter: blur(40px);
+  opacity: .55;
+  pointer-events: none;
+}
+
+/* custom keyframes for gentle floating blobs */
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33%      { transform: translate(30px, -40px) scale(1.08); }
+  66%      { transform: translate(-25px, 20px) scale(0.92); }
+}
+
+.animate-blob {
+  animation: blobFloat 14s ease-in-out infinite;
+}
+
+/* section container */
+.section {
+  @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* nice headings */
+.h1 {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight;
+}
+.h2 {
+  @apply text-2xl sm:text-3xl font-bold tracking-tight;
+}
+.p {
+  @apply text-lg text-slate-600;
+}
+
+/* simple card */
+.card {
+  @apply rounded-2xl border border-slate-200 bg-white/80 shadow-sm backdrop-blur;
+}
