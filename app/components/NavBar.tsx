@@ -9,7 +9,7 @@ export default function NavBar() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         {/* Logo on the left, links on the right */}
         <Link href="/" aria-label="Go to homepage">
-          <Logo />
+          <Logo size={60} />
         </Link>
 
         <ul className="flex items-center gap-6 text-sm">
