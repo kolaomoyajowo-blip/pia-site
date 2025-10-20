@@ -9,8 +9,8 @@ export default function NavBar() {
       <nav className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
         {/* Left: Logo (clickable) */}
         <Link href="/" aria-label="Go to homepage" className="shrink-0">
-          {/* Increase or decrease the size number to change the navbar logo size */}
-          <Logo size={72} />
+          {/* Adjust size to make the logo bigger/smaller in the navbar */}
+          <Logo size={72} showName={false} />
         </Link>
 
         {/* Right: Navigation links */}
