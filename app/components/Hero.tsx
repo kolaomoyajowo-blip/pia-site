@@ -1,58 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* grid + blobs background */}
-      <div className="absolute inset-0 bg-grid" aria-hidden />
-      <div className="pointer-events-none absolute -top-24 -left-16 h-72 w-72 rounded-full bg-fuchsia-400/40 blob animate-blob" />
-      <div className="pointer-events-none absolute top-40 -right-10 h-64 w-64 rounded-full bg-sky-400/40 blob animate-blob" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-emerald-400/40 blob animate-blob" style={{ animationDelay: "3s" }} />
+      {/* Background image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/hero.webp"           // if you used PNG: "/hero-optimized.png"
+          alt="Interdisciplinary team aligning AI systems with privacy and governance requirements"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        {/* Soft gradient overlay to keep text readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/85 via-white/70 to-white/40" />
+      </div>
 
-      <div className="section relative py-16 sm:py-24">
-        <div className="grid items-center gap-10 lg:grid-cols-2">
-          <div>
-            <h1 className="h1">
-              Privacy Intelligence Academy
-            </h1>
-            <p className="p mt-6">
-              Practical training for lawyers, compliance teams, and founders —
-              turn privacy data into confident, responsible decisions.
-            </p>
+      {/* Content */}
+      <div className="mx-auto max-w-6xl px-4 py-20 md:py-28">
+        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+          Where Law, Data &amp; AI Meet Real-World Governance
+        </h1>
+        <p className="mt-5 max-w-3xl text-lg md:text-xl text-gray-700">
+          Privacy Intelligence Academy helps organizations manage privacy, cybersecurity,
+          and AI governance risks—turning advanced research into practical frameworks
+          and deployable controls.
+        </p>
 
-            <div className="mt-8 flex items-center gap-4">
-              <Link
-                href="/contact"
-                className="rounded-xl bg-slate-900 px-5 py-3 text-white hover:bg-slate-700 transition"
-              >
-                Contact us
-              </Link>
-              <Link
-                href="/about"
-                className="rounded-xl border border-slate-300 px-5 py-3 hover:bg-white transition"
-              >
-                Learn more
-              </Link>
-            </div>
-
-            <p className="mt-4 text-sm text-slate-500">
-              Trusted, practical, and immediately applicable.
-            </p>
-          </div>
-
-          {/* motion imagery (lightweight) */}
-          <div className="relative aspect-[5/4] w-full">
-            <Image
-              fill
-              priority
-              alt="People collaborating on privacy strategy"
-              className="rounded-2xl object-cover shadow-lg"
-              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop"
-            />
-          </div>
+        <div className="mt-8 flex gap-4">
+          <a
+            href="/contact"
+            className="rounded-xl bg-gray-900 px-6 py-3 text-white font-medium hover:bg-gray-800"
+          >
+            Work with PIA
+          </a>
+          <a
+            href="/about"
+            className="rounded-xl border border-gray-300 px-6 py-3 font-medium hover:bg-gray-50"
+          >
+            Join as a Member
+          </a>
         </div>
       </div>
     </section>
